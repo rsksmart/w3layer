@@ -1,0 +1,50 @@
+{
+  "name": "@rsksmart/sdkW3layer",
+  "version": "0.1.0",
+  "description": "Web3 Core Layer - Encapsulates blockchain interactions for Rootstock SDK",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "rootstock",
+    "rsk",
+    "web3",
+    "viem",
+    "blockchain"
+  ],
+  "author": "RootstockCollective",
+  "license": "MIT",
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

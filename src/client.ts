@@ -52,6 +52,7 @@ export function createW3Layer(config: W3LayerConfig): W3LayerInstance {
     simulateContract: (params) => simulateContract(publicClient, params),
     writeContract: (walletClient, params) =>
       writeContract(publicClient, walletClient, params),
+    getBalance: (address) => getBalance(publicClient, address),
   }
 }
 
@@ -183,6 +184,16 @@ async function writeContract(
       }
     },
   }
+}
+
+/**
+ * Get native token balance (RBTC) for an address
+ */
+async function getBalance(
+  client: PublicClient,
+  address: `0x${string}`
+): Promise<bigint> {
+  return client.getBalance({ address })
 }
 
 /**

@@ -128,4 +128,6 @@ export interface W3LayerInstance {
     walletClient: WalletClient,
     params: WriteContractParams
   ) => Promise<WriteContractResult>
+  /** Get native token balance (RBTC) for an address */
+  getBalance: (address: `0x${string}`) => Promise<bigint>
 }

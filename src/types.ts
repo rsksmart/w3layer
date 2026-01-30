@@ -130,4 +130,14 @@ export interface W3LayerInstance {
   ) => Promise<WriteContractResult>
   /** Get native token balance (RBTC) for an address */
   getBalance: (address: `0x${string}`) => Promise<bigint>
+  /** Get contract event logs */
+  getLogs: (params: {
+    address: `0x${string}`
+    event: unknown
+    args?: Record<string, unknown>
+    fromBlock?: bigint
+    toBlock?: bigint | 'latest'
+  }) => Promise<unknown[]>
+  /** Get block information */
+  getBlock: (blockNumber?: bigint) => Promise<{ timestamp: bigint; number: bigint }>
 }

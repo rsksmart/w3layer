@@ -53,6 +53,8 @@ export function createW3Layer(config: W3LayerConfig): W3LayerInstance {
     writeContract: (walletClient, params) =>
       writeContract(publicClient, walletClient, params),
     getBalance: (address) => getBalance(publicClient, address),
+    getLogs: (params) => getLogs(publicClient, params),
+    getBlock: (blockNumber) => getBlock(publicClient, blockNumber),
   }
 }
 
@@ -194,6 +196,46 @@ async function getBalance(
   address: `0x${string}`
 ): Promise<bigint> {
   return client.getBalance({ address })
+}
+
+/**
+ * Get contract event logs
+ */
+async function getLogs(
+  client: PublicClient,
+  params: {
+    address: `0x${string}`
+    event: unknown
+    args?: Record<string, unknown>
+    fromBlock?: bigint
+    toBlock?: bigint | 'latest'
+  }
+): Promise<unknown[]> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const logs = await client.getLogs({
+    address: params.address,
+    event: params.event,
+    args: params.args,
+    fromBlock: params.fromBlock,
+    toBlock: params.toBlock,
+  } as any)
+  return logs
+}
+
+/**
+ * Get block information
+ */
+async function getBlock(
+  client: PublicClient,
+  blockNumber?: bigint
+): Promise<{ timestamp: bigint; number: bigint }> {
+  const block = await client.getBlock({
+    blockNumber,
+  })
+  return {
+    timestamp: block.timestamp,
+    number: block.number,
+  }
 }
 
 /**

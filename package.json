@@ -1,7 +1,11 @@
 {
-  "name": "@rsksmart/sdkW3layer",
-  "version": "0.1.0",
+  "name": "@rsksmart/w3layer",
+  "version": "0.2.1",
   "description": "Web3 Core Layer - Encapsulates blockchain interactions for Rootstock SDK",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rsksmart/w3layer.git"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -31,7 +35,7 @@
     "viem",
     "blockchain"
   ],
-  "author": "RootstockCollective",
+  "author": "Sebastian Guaqueta",
   "license": "MIT",
   "dependencies": {
     "viem": "^2.21.0"

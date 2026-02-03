@@ -31,7 +31,7 @@
     "viem",
     "blockchain"
   ],
-  "author": "RootstockCollective",
+  "author": "Sebastian Guaqueta",
   "license": "MIT",
   "dependencies": {
     "viem": "^2.21.0"

@@ -150,14 +150,18 @@ async function writeContract(
   walletClient: WalletClient,
   params: WriteContractParams
 ): Promise<WriteContractResult> {
+  const account = walletClient.account
+  if (!account) {
+    throw new Error(
+      'No account available in wallet client. ' +
+      'Make sure to create the wallet client with an account that can sign transactions. ' +
+      'Example: createWalletClient({ account: privateKeyToAccount(privateKey), chain, transport })'
+    )
+  }
+
   const simulation = await simulateContract(publicClient, params)
   if (!simulation.success) {
     throw new Error(`Transaction simulation failed: ${simulation.error}`)
-  }
-
-  const [account] = await walletClient.getAddresses()
-  if (!account) {
-    throw new Error('No account available in wallet client')
   }
 
   const hash = await walletClient.writeContract({

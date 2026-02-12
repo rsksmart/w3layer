@@ -119,7 +119,8 @@ async function multicall<T extends readonly unknown[]>(
  */
 async function simulateContract(
   client: PublicClient,
-  params: WriteContractParams
+  params: WriteContractParams,
+  account?: `0x${string}`
 ): Promise<SimulateResult> {
   try {
     const { result } = await client.simulateContract({
@@ -128,6 +129,7 @@ async function simulateContract(
       functionName: params.functionName,
       args: params.args as unknown[],
       value: params.value,
+      account,
     })
 
     return {
@@ -159,7 +161,7 @@ async function writeContract(
     )
   }
 
-  const simulation = await simulateContract(publicClient, params)
+  const simulation = await simulateContract(publicClient, params, account.address)
   if (!simulation.success) {
     throw new Error(`Transaction simulation failed: ${simulation.error}`)
   }

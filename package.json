@@ -1,6 +1,6 @@
 {
   "name": "@rsksmart/w3layer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Web3 Core Layer - Encapsulates blockchain interactions for Rootstock SDK",
   "type": "module",
   "main": "./dist/index.cjs",

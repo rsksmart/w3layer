@@ -1,3 +1,8 @@
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/rsksmart/w3layer/badge)](https://scorecard.dev/viewer/?uri=github.com/rsksmart/w3layer)
+[![CodeQL](https://github.com/rsksmart/w3layer/workflows/CodeQL/badge.svg)](https://github.com/rsksmart/w3layer/actions?query=workflow%3ACodeQL)
+
+<img src="rootstock-logo.png" alt="RSK Logo" style="width:100%; height: auto;" />
+
 # @rsksmart/w3layer
 
 Web3 core layer for Rootstock SDKs. It wraps [viem](https://viem.sh) with a small, consistent API: public client, contract reads, multicall, write simulation, and signed transactions via a `WalletClient`.

@@ -183,6 +183,3 @@ import type {
 - Node.js >= 18
 - TypeScript >= 5 (recommended peer dependency)
 
-## License
-
-MIT
